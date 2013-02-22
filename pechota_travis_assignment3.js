@@ -7,7 +7,7 @@
 	additionalAisle1 = "Chips";
 	additionalAisle2 = "Coffee";*/
 
-var cartsPerAisle = 5;
+/*var cartsPerAisle = 5;
 	whatAisles = ["soup", 
 				"paper"];
 	extraAisle = 1;
@@ -30,5 +30,20 @@ var shortNight = function (aisles) {
 
 //calls
 var earlyExit = shortNight(1)
-console.log("It is " + earlyExit + " that I will leave early tonight.")
+console.log("It is " + earlyExit + " that I will leave early tonight.")*/
+
+//object with accessor
+var aisle = {
+	"carts": 6,
+	"timePerCart": 60,
+	"timePerAisle": function (){
+		var totalTime = this.timePerCart * this.carts;
+		return totalTime;
+	}
+}
+
+//object with mutator
+
+//calls
+console.log(aisle.timePerAisle());
 
