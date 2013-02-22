@@ -10,14 +10,14 @@
 var cartsPerAisle = 5;
 	whatAisles = ["soup", 
 				"paper"];
-	extraAisle = 1;
-	longNight = true;
 	iQuit = "Bill, I quit!";
 	soups = {
 			"Progresso":["Chunky Potato", "Chicken Noodle"],
 			"Campbells":["Clam Chowder", "Beef Barley"],
 			"Meijer":false
 			};
+	additionalAisle1 = "Chips";
+	additionalAisle2 = "Coffee";
 
 //boolean
 var shortNight = function (aisles) {
@@ -39,10 +39,18 @@ var aisleNum = function(number) {
 
 //array
 var aislesDone = function(aisleName, number) {
+	console.log("I have finished Progresso " + soups.Progresso + " and Campbells " + soups.Campbells + ".  Do I have Meijer soups? " + soups.Meijer + ".");
 	for (var done = number; done < whatAisles.length; done++) {
 		console.log("I have finished " + whatAisles[done] + ".");
 	};
 	return aisleName + number;
+};
+
+//string
+var moreAisles = function(numberOne, numberTwo) {
+	var chips = "Now I have to do " + numberOne + " as well.";
+	var coffee = "And " + numberTwo + "?  I really will be here until 11.";
+	return chips + " " + coffee;
 };
 
 //object with accessor
@@ -56,16 +64,21 @@ var aisle = {
 }
 
 //calls
+var earlyExit = shortNight(1)
+console.log("It is " + earlyExit + " that I will leave early tonight.")
+
+console.log("It takes me " + aisle.timePerAisle() + " minutes each aisle.");
+
 var carts = aisleNum(5);
 console.log("\"Bill, I don't need anymore carts.  I'll be here until 11.\"");
 
-var earlyExit = shortNight(1)
-console.log("It is " + earlyExit + " that I will leave early tonight.")
+var tooManyAisles = moreAisles(additionalAisle1, additionalAisle2);
+console.log(tooManyAisles);
 
 var array = aislesDone(whatAisles[0], 0)
 console.log("Since " + whatAisles[0]  + " and " + whatAisles[1] + " are all done, and other stockers are finishing, they come to help me finish by 6:30, not 11.");
 
+console.log(iQuit)
 
-console.log(aisle.timePerAisle());
 
 
